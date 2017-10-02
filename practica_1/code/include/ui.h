@@ -1,8 +1,8 @@
 #include "objetos.h"
 
-enum TipoObjeto {cubo, piramide};
+enum TipoObjeto {Cubo, Piramide};
 
-enum Visualizacion {puntos, aristas, solido, ajedrez};
+enum Visualizacion {Puntos, Aristas, Solido, Ajedrez};
 
 class UI {
 public:

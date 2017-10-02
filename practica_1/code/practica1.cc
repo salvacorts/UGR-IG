@@ -10,14 +10,19 @@
 #include "stdio.h"
 #include <GL/glut.h>
 #include <ctype.h>
-#include "./include/objetos.h"
+#include "./include/ui.h" // De aqui se hereda objetos.h
 
 // tamaño de los ejes
-// const int AXIS_SIZE = 5000;
+const int AXIS_SIZE = 5000;
 
 // Objeto a dibujar
 _piramide piramide;
 _cubo cubo;
+
+TipoObjeto objeto = Piramide;
+Visualizacion viMode = Aristas;
+
+UI ui(piramide, cubo);
 
 // variables que definen la posicion de la camara en coordenadas polares
 GLfloat Observer_distance;
@@ -93,14 +98,7 @@ void draw_axis() {
 // Funcion que dibuja los objetos
 //***************************************************************************
 void draw_objects() {
-  // piramide.draw_puntos(0, 0, 0, 2);
-  // piramide.draw_aristas(0, 0, 0, 1);
-  // piramide.draw_solido(0,0,0);
-  // piramide.draw_solido_ajedrez(1,0,0, 0,1,0);
-  // cubo.draw_puntos(0, 0, 0, 2);
-  // cubo.draw_aristas(0, 0, 0, 1);
-  // cubo.draw_solido(0,0,0);
-  cubo.draw_solido_ajedrez(1,0,0, 0,1,0);
+  ui.Muestra(objeto, viMode);
 }
 
 
@@ -143,7 +141,17 @@ void change_window_size(int Ancho1,int Alto1) {
 //***************************************************************************
 
 void normal_keys(unsigned char Tecla1,int x,int y) {
-  if (toupper(Tecla1)=='Q') exit(0);
+  unsigned char key = toupper(Tecla1);
+  if (key == 'Q') exit(0);
+
+  if (key == 'P') viMode = Puntos;
+  else if (key == 'L') viMode = Aristas;
+  else if (key == 'F') viMode = Solido;
+  else if (key == 'C') viMode = Ajedrez;
+  else if (key == '1') objeto = Piramide;
+  else if (key == '2') objeto = Cubo;
+
+  glutPostRedisplay();
 }
 
 //***************************************************************************

@@ -9,7 +9,7 @@
 
 using namespace std;
 
-const float AXIS_SIZE = 5000;
+// const float AXIS_SIZE = 5000;
 
 //*************************************************************************
 // clase punto
