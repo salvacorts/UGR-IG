@@ -5,7 +5,7 @@ UI::UI(_piramide& p, _cubo& c) {
   this->cubo = &c;
 }
 
-void UI::Muestra(TipoObjeto objeto, Visualizacion viMode) {
+void UI::Muestra(TipoObjeto objeto, Visualizacion viMode, bool circulos) {
   const float r = 1.0; const float r2 = 0.0;
   const float g = 0.0; const float g2 = 1.0;
   const float b = 0.0; const float b2 = 0.0;
@@ -33,4 +33,6 @@ void UI::Muestra(TipoObjeto objeto, Visualizacion viMode) {
       figura->draw_solido_ajedrez(r, g, b, r2, g2, b2);
       break;
   }
+
+  if (circulos) figura->draw_circulos_vertices(0.1, 8);
 }

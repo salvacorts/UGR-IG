@@ -10,5 +10,5 @@ public:
   _piramide* piramide;
 
   UI(_piramide& p, _cubo& c);
-  void Muestra(TipoObjeto objeto, Visualizacion viMode);
+  void Muestra(TipoObjeto objeto, Visualizacion viMode, bool circulos=false);
 };

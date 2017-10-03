@@ -23,6 +23,24 @@ void _puntos3D::draw_puntos(float r, float g, float b, int grosor) {
 
 _triangulos3D::_triangulos3D() {}
 
+void _triangulos3D::draw_circulos_vertices(float radio, int resolucion) {
+  for (int i = 0; i < vertices.size(); ++i) {
+    draw_circulo(radio, vertices[i].x, vertices[i].y, vertices[i].z, resolucion);
+  }
+}
+
+void _triangulos3D::draw_circulo(float radio, float x, float y, float z, int n) {
+  glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+  glColor3f(0.0, 0.0, 1.0);
+
+  glBegin(GL_POLYGON);
+    for (int i = 0; i < n; ++i) {
+      glVertex3f(x+radio*cosf(2.0*M_PI*i/n), y+radio*sinf(2.0*M_PI*i/n), z);
+    }
+  glEnd();
+
+}
+
 void _triangulos3D::draw_aristas(float r, float g, float b, int grosor) {
   glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
   glPointSize(grosor);
@@ -94,7 +112,7 @@ _cubo::_cubo(float tam) {
   vertices[6]; vertices[6].x=0; vertices[6].y=tam; vertices[6].z=0;
   vertices[7]; vertices[7].x=tam; vertices[7].y=tam; vertices[7].z=0;
 
-  // Caras de dos triangulos (12 total) (los vertices tienen que ir en sentido horario)
+  // Caras de dos triangulos (12 total) (los vertices tienen que ir en sentido antihorario)
   caras.resize(12);
   caras[0]; caras[0]._0=0; caras[0]._1=3; caras[0]._2=5;
   caras[1]; caras[1]._0=3; caras[1]._1=4; caras[1]._2=5;
@@ -108,7 +126,6 @@ _cubo::_cubo(float tam) {
   caras[9]; caras[9]._0=1; caras[9]._1=0; caras[9]._2=5;
   caras[10]; caras[10]._0=1; caras[10]._1=7; caras[10]._2=2;
   caras[11]; caras[11]._0=1; caras[11]._1=6; caras[11]._2=7;
-
 }
 
 

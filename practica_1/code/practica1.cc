@@ -21,6 +21,7 @@ _cubo cubo;
 
 TipoObjeto objeto = Piramide;
 Visualizacion viMode = Aristas;
+bool circulos = false;
 
 UI ui(piramide, cubo);
 
@@ -98,7 +99,7 @@ void draw_axis() {
 // Funcion que dibuja los objetos
 //***************************************************************************
 void draw_objects() {
-  ui.Muestra(objeto, viMode);
+  ui.Muestra(objeto, viMode, circulos);
 }
 
 
@@ -145,6 +146,7 @@ void normal_keys(unsigned char Tecla1,int x,int y) {
   if (key == 'Q') exit(0);
 
   if (key == 'P') viMode = Puntos;
+  else if (key == 'J') circulos = !circulos;
   else if (key == 'L') viMode = Aristas;
   else if (key == 'F') viMode = Solido;
   else if (key == 'C') viMode = Ajedrez;
