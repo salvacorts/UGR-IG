@@ -23,6 +23,28 @@ void _puntos3D::draw_puntos(float r, float g, float b, int grosor) {
 
 _triangulos3D::_triangulos3D() {}
 
+void _triangulos3D::draw_color_vertices() {
+  glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+  glShadeModel(GL_SMOOTH);
+  glBegin(GL_TRIANGLES);
+
+    for (int i = 0; i < caras.size(); ++i) {
+      int v1=caras[i]._0, v2=caras[i]._1, v3=caras[i]._2;
+
+      glColor3f(colores[v1].r, colores[v1].g, colores[v1].b);
+      glVertex3f(vertices[v1].x, vertices[v1].y, vertices[v1].z);
+
+      glColor3f(colores[v2].r, colores[v2].g, colores[v2].b);
+      glVertex3f(vertices[v2].x, vertices[v2].y, vertices[v2].z);
+
+      glColor3f(colores[v3].r, colores[v3].g, colores[v3].b);
+      glVertex3f(vertices[v3].x, vertices[v3].y, vertices[v3].z);
+    }
+
+  glEnd();
+  glShadeModel(GL_FLAT);
+}
+
 void _triangulos3D::draw_circulos_vertices(float radio, int resolucion) {
   for (int i = 0; i < vertices.size(); ++i) {
     draw_circulo(radio, vertices[i].x, vertices[i].y, vertices[i].z, resolucion);
@@ -126,6 +148,17 @@ _cubo::_cubo(float tam) {
   caras[9]; caras[9]._0=1; caras[9]._1=0; caras[9]._2=5;
   caras[10]; caras[10]._0=1; caras[10]._1=7; caras[10]._2=2;
   caras[11]; caras[11]._0=1; caras[11]._1=6; caras[11]._2=7;
+
+  // Colores
+  colores.resize(8);
+  colores[0].r = 0.1; colores[0].g = 0.7; colores[0].b = 0.5;
+  colores[1].r = 0.5; colores[1].g = 0.1; colores[1].b = 0.9;
+  colores[2].r = 0.8; colores[2].g = 0.4; colores[2].b = 0.2;
+  colores[3].r = 0.2; colores[3].g = 0.9; colores[3].b = 0.9;
+  colores[4].r = 0.6; colores[4].g = 0.8; colores[4].b = 0.3;
+  colores[5].r = 0.2; colores[5].g = 0.9; colores[5].b = 0.5;
+  colores[6].r = 0.9; colores[6].g = 0.7; colores[6].b = 0.5;
+  colores[7].r = 0.4; colores[7].g = 0.2; colores[7].b = 0.7;
 }
 
 
@@ -150,4 +183,12 @@ _piramide::_piramide(float tam, float al) {
   caras[3]; caras[3]._0=3; caras[3]._1=0; caras[3]._2=4;
   caras[4]; caras[4]._0=3; caras[4]._1=1; caras[4]._2=0;
   caras[5]; caras[5]._0=3; caras[5]._1=2; caras[5]._2=1;
+
+  // Colores
+  colores.resize(5);
+  colores[0].r = 0.1; colores[0].g = 0.7; colores[0].b = 0.5;
+  colores[1].r = 0.5; colores[1].g = 0.1; colores[1].b = 0.9;
+  colores[2].r = 0.8; colores[2].g = 0.4; colores[2].b = 0.2;
+  colores[3].r = 0.2; colores[3].g = 0.9; colores[3].b = 0.9;
+  colores[4].r = 0.6; colores[4].g = 0.8; colores[4].b = 0.3;
 }

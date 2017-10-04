@@ -150,6 +150,7 @@ void normal_keys(unsigned char Tecla1,int x,int y) {
   else if (key == 'L') viMode = Aristas;
   else if (key == 'F') viMode = Solido;
   else if (key == 'C') viMode = Ajedrez;
+  else if (key == 'V') viMode = Fade;
   else if (key == '1') objeto = Piramide;
   else if (key == '2') objeto = Cubo;
 

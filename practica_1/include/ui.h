@@ -2,7 +2,7 @@
 
 enum TipoObjeto {Cubo, Piramide};
 
-enum Visualizacion {Puntos, Aristas, Solido, Ajedrez};
+enum Visualizacion {Puntos, Aristas, Solido, Ajedrez, Fade};
 
 class UI {
 public:

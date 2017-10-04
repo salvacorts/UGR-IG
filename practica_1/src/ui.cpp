@@ -32,6 +32,9 @@ void UI::Muestra(TipoObjeto objeto, Visualizacion viMode, bool circulos) {
     case Ajedrez:
       figura->draw_solido_ajedrez(r, g, b, r2, g2, b2);
       break;
+    case Fade:
+      figura->draw_color_vertices();
+      break;
   }
 
   if (circulos) figura->draw_circulos_vertices(0.1, 8);
