@@ -10,7 +10,7 @@
 #include "stdio.h"
 #include <GL/glut.h>
 #include <ctype.h>
-#include "./include/ui.h" // De aqui se hereda objetos.h
+#include "ui.h" // De aqui se hereda objetos.h
 
 // tamaño de los ejes
 const int AXIS_SIZE = 5000;

@@ -1,4 +1,4 @@
-#include "./include/objetos.h"
+#include "objetos.h"
 
 // Objeto _puntos3D //
 
