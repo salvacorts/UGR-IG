@@ -1,4 +1,4 @@
-#include "./include/ui.h"
+#include "ui.h"
 
 UI::UI(_piramide& p, _cubo& c) {
   this->piramide = &p;

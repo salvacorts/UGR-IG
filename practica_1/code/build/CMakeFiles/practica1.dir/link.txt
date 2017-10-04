@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/practica1.dir/src/objetos.cpp.o CMakeFiles/practica1.dir/src/practica1.cpp.o CMakeFiles/practica1.dir/src/ui.cpp.o  -o practica1 -rdynamic 
