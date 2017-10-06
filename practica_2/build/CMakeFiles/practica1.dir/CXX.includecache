@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/file_ply_stl.h
+fstream
+-
+sstream
+-
+iostream
+-
+string
+-
+vector
+-
+vertex.h
+../include/vertex.h
+
+../include/vertex.h
+stdio.h
+-
+assert.h
+-
+math.h
+-
+iostream
+-
+
+/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_2/src/file_ply_stl.cpp
+file_ply_stl.h
+/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_2/src/file_ply_stl.h
+
+/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_2/src/read_ply.cpp
+file_ply_stl.h
+-
+iostream
+-
+
