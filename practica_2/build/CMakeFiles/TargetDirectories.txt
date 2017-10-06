@@ -1,3 +1,0 @@
-/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_2/build/CMakeFiles/edit_cache.dir
-/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_2/build/CMakeFiles/rebuild_cache.dir
-/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_2/build/CMakeFiles/practica1.dir
