@@ -12,10 +12,12 @@
 #include <ctype.h>
 #include "ui.h" // De aqui se hereda objetos.h
 
+
 // tamaño de los ejes
 const int AXIS_SIZE = 5000;
 
 // Objeto a dibujar
+_revolucion* revolucion;
 _objetoPLY* objetoPLY;
 _piramide piramide;
 _cubo cubo;
@@ -23,6 +25,7 @@ _cubo cubo;
 TipoObjeto objeto = Piramide;
 Visualizacion viMode = Aristas;
 bool circulos = false;
+bool tapas = false;
 
 UI ui(piramide, cubo);
 
@@ -100,7 +103,7 @@ void draw_axis() {
 // Funcion que dibuja los objetos
 //***************************************************************************
 void draw_objects() {
-  ui.Muestra(objeto, viMode, circulos);
+  ui.Muestra(objeto, viMode, circulos, tapas);
 }
 
 
@@ -148,6 +151,8 @@ void normal_keys(unsigned char Tecla1,int x,int y) {
 
   if (key == 'P') {
     viMode = Puntos;
+  } else if (key == 'T') {
+    tapas = !tapas;
   } else if (key == 'J') {
     circulos = !circulos;
   } else if (key == 'L') {
@@ -164,8 +169,27 @@ void normal_keys(unsigned char Tecla1,int x,int y) {
     objeto = Cubo;
   } else if (key == '3') {
     string archivo;
+    int n;
+
+    cout << "[>] Ruta archivo de revolucion: ";
+    cin >> archivo;
+    cout << "[>] Numero de caras: ";
+    cin >> n;
+    cout << "Para quitar/poner tapas: 't'" << endl;
+
+    if (revolucion != NULL) delete revolucion;
+
+    revolucion = new _revolucion(archivo.c_str());
+    ui.SetRevolucion(*revolucion, n, tapas);
+    objeto = Revolucion;
+  } else if (key == '4') {
+    string archivo;
+
     cout << "[>] Ruta archivo: ";
     cin >> archivo;
+
+    if (objetoPLY != NULL) delete objetoPLY;
+
     objetoPLY = new _objetoPLY(archivo.c_str());
     ui.SetPLY(*objetoPLY);
     objeto = PLY;
@@ -183,7 +207,6 @@ void normal_keys(unsigned char Tecla1,int x,int y) {
 // posicion y del raton
 
 //***************************************************************************
-
 void special_keys(int Tecla1,int x,int y) {
   switch (Tecla1){
   	case GLUT_KEY_LEFT:
@@ -270,7 +293,7 @@ int main(int argc, char **argv) {
 
   // llamada para crear la ventana, indicando el titulo (no se visualiza hasta que se llama
   // al bucle de eventos)
-  glutCreateWindow("Práctica 1");
+  glutCreateWindow("Practica 2");
 
   // asignación de la funcion llamada "dibujar" al evento de dibujo
   glutDisplayFunc(draw_scene);

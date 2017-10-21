@@ -1,16 +1,18 @@
 #include "objetos.h"
 
-enum TipoObjeto {Cubo, Piramide, PLY};
+enum TipoObjeto {Cubo, Piramide, PLY, Revolucion};
 
 enum Visualizacion {Puntos, Aristas, Solido, Ajedrez, Fade};
 
 class UI {
 public:
-  _cubo* cubo;
+  _revolucion* revolucion;
   _piramide* piramide;
   _objetoPLY* objeto;
+  _cubo* cubo;
 
   UI(_piramide& p, _cubo& c);
   void SetPLY(_objetoPLY& o);
-  void Muestra(TipoObjeto objeto, Visualizacion viMode, bool circulos=false);
+  void SetRevolucion(_revolucion& revolucion, int n, bool tapas=false);
+  void Muestra(TipoObjeto objeto, Visualizacion viMode, bool circulos=false, bool tapas=false);
 };

@@ -1,12 +1,13 @@
 #include "objetos.h"
+#include <climits>
 
 // Objeto _puntos3D //
 
 _puntos3D::_puntos3D() {}
 
-void _puntos3D::draw_puntos(float r, float g, float b, int grosor) {
+void _puntos3D::draw_puntos(float color[3], int grosor) {
   glPointSize(grosor);
-  glColor3f(r, g, b);
+  glColor3f(color[0], color[1], color[2]);
 
   glBegin(GL_POINTS);
 
@@ -16,6 +17,16 @@ void _puntos3D::draw_puntos(float r, float g, float b, int grosor) {
     }
 
   glEnd();
+}
+
+void _puntos3D::AddRandColors() {
+  colores.resize(vertices.size());
+
+  for (int i = 0; i < colores.size(); ++i) {
+    colores[i].r = DoubRand();
+    colores[i].g = DoubRand();
+    colores[i].b = DoubRand();
+  }
 }
 
 
@@ -45,15 +56,15 @@ void _triangulos3D::draw_color_vertices() {
   glShadeModel(GL_FLAT);
 }
 
-void _triangulos3D::draw_circulos_vertices(float radio, int resolucion) {
+void _triangulos3D::draw_circulos_vertices(float radio, int resolucion, float color[3]) {
   for (int i = 0; i < vertices.size(); ++i) {
-    draw_circulo(radio, vertices[i].x, vertices[i].y, vertices[i].z, resolucion);
+    draw_circulo(radio, vertices[i].x, vertices[i].y, vertices[i].z, resolucion, color);
   }
 }
 
-void _triangulos3D::draw_circulo(float radio, float x, float y, float z, int n) {
+void _triangulos3D::draw_circulo(float radio, float x, float y, float z, int n, float color[3]) {
   glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-  glColor3f(0.0, 0.0, 1.0);
+  glColor3f(color[0], color[1], color[2]);
 
   glBegin(GL_POLYGON);
     for (int i = 0; i < n; ++i) {
@@ -63,10 +74,10 @@ void _triangulos3D::draw_circulo(float radio, float x, float y, float z, int n) 
 
 }
 
-void _triangulos3D::draw_aristas(float r, float g, float b, int grosor) {
+void _triangulos3D::draw_aristas(float color[3], int grosor) {
   glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
   glPointSize(grosor);
-  glColor3f(r, g, b);
+  glColor3f(color[0], color[1], color[2]);
 
   glBegin(GL_TRIANGLES);
     for (int i = 0; i < caras.size(); ++i) {
@@ -79,9 +90,9 @@ void _triangulos3D::draw_aristas(float r, float g, float b, int grosor) {
   glEnd();
 }
 
-void _triangulos3D::draw_solido(float r, float g, float b) {
+void _triangulos3D::draw_solido(float color[3]) {
   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-  glColor3f(r, g, b);
+  glColor3f(color[0], color[1], color[2]);
 
   glBegin(GL_TRIANGLES);
 
@@ -95,7 +106,7 @@ void _triangulos3D::draw_solido(float r, float g, float b) {
   glEnd();
 }
 
-void _triangulos3D::draw_solido_ajedrez(float r1, float g1, float b1, float r2, float g2, float b2) {
+void _triangulos3D::draw_solido_ajedrez(float color1[3], float color2[3]) {
   int r, g, b;
 
   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -106,9 +117,9 @@ void _triangulos3D::draw_solido_ajedrez(float r1, float g1, float b1, float r2, 
       int v1=caras[i]._0, v2=caras[i]._1, v3=caras[i]._2;
 
       if (i % 2 == 0) {
-        r = r1; g = g1; b = b1;
+        r = color1[0]; g = color1[1]; b = color1[2];
       } else {
-        r = r2; g = g2; b = b2;
+        r = color2[0]; g = color2[1]; b = color2[2];
       }
 
       glColor3f(r, g, b);
@@ -201,5 +212,111 @@ _objetoPLY::_objetoPLY(const char archivo[]) {
   if (File_ply.open(archivo)) {
     File_ply.read(vertices, caras);
     cout << "[+] " << archivo << " readed" << endl;
+
+    colores.resize(vertices.size());
+
+    AddRandColors();
   }
+}
+
+// Objeto por revolucion
+_revolucion::_revolucion(const char perfil[])  : _objetoPLY(perfil) {
+  this->perfil = vertices;
+}
+
+void _revolucion::parametros(bool tapas, int num) {
+  int pts_perfil = perfil.size();
+  _vertex3f vertice_aux;
+  _vertex3i cara_aux;
+
+  // Necesario para el Get() de ambos parametros para ver si hay cambios
+  this->n = num;
+  this->tapas = tapas;
+
+  vertices.resize(pts_perfil*n);
+  caras.clear();  // Si no se limpia, una vez que hay tapas, ahi se quedan
+
+  // Crea los vertices
+  for (int j = 0; j < n; j++) {
+    for (int i = 0; i < pts_perfil; i++) {
+      double alpha = 2.0*M_PI*j/(1.0*n);
+
+      vertice_aux.x = perfil[i].x*cosf(alpha) + perfil[i].z*sinf(alpha);
+      vertice_aux.z = perfil[i].x*sinf(alpha) + perfil[i].z*cos(alpha);
+      vertice_aux.y = perfil[i].y;
+
+      vertices[i+j*pts_perfil] = vertice_aux;
+    }
+  }
+
+  // Caras:
+  for (int j = 0; j < n; j++) {
+    for (int i = 0; i < pts_perfil-1; i++) {
+      cara_aux._0 = i + ((j+1)%n)*pts_perfil;
+      cara_aux._1 = i + 1 + ((j+1)%n)*pts_perfil;
+      cara_aux._2 = i + 1 + j*pts_perfil;
+      caras.push_back(cara_aux);
+
+      cara_aux._0 = i + 1 + j*pts_perfil;
+      cara_aux._0 = i + j*pts_perfil;
+      cara_aux._1 = i + ((j+1)%n)*pts_perfil;
+      caras.push_back(cara_aux);
+    }
+  }
+
+  // TODO: Calculas el punto mas alto y el mas bajo
+  if (tapas) {
+    // _vertex3f pt_superior, pt_inferior;
+    // int y_min = INT_MAX;
+    // int y_max = INT_MIN;
+    //
+    // // Busca la cara mas alta y la mas baja
+    // for (int i = 0; i < perfil.size(); i++) {
+    //   if (perfil[i].y < y_min) {
+    //     pt_inferior = perfil[i];
+    //     y_min = perfil[i].y;
+    //   }
+    //
+    //   if (perfil[i].y > y_max) {
+    //     pt_superior = perfil[i];
+    //     y_max = perfil[i].y;
+    //   }
+    // }
+
+    // Tapa Inferior
+    if (fabs(perfil[0].x) > 0.0) {
+      vertice_aux.x = 0.0;
+      vertice_aux.y = perfil[0].y;
+      vertice_aux.z = 0.0;
+      vertices.push_back(vertice_aux);
+
+      cara_aux._0 = pts_perfil*n;
+
+      for (int i = 0; i < n; i++) {
+        cara_aux._1 = ((i+1)%n)*pts_perfil;
+        cara_aux._2 = i*pts_perfil;
+
+        caras.push_back(cara_aux);
+      }
+    }
+
+    // Tapa superior
+    if (fabs(perfil[pts_perfil-1].x) > 0.0) {
+      vertice_aux.x = 0.0;
+      vertice_aux.y = perfil[pts_perfil-1].y;
+      vertice_aux.z = 0.0;
+      vertices.push_back(vertice_aux);
+
+      cara_aux._0 = pts_perfil*n+1;
+
+      for (int i = 0; i < n; i++) {
+        cara_aux._1 = (i+1)*pts_perfil-1;
+        cara_aux._2 = ((i+1)%n)*pts_perfil + pts_perfil-1,
+
+        caras.push_back(cara_aux);
+      }
+    }
+  }
+
+  AddRandColors();
 }

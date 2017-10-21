@@ -9,16 +9,28 @@ void UI::SetPLY(_objetoPLY& o) {
   this->objeto = &o;
 }
 
-void UI::Muestra(TipoObjeto objeto, Visualizacion viMode, bool circulos) {
-  const float r = 1.0; const float r2 = 0.0;
-  const float g = 0.0; const float g2 = 1.0;
-  const float b = 0.0; const float b2 = 0.0;
+void UI::SetRevolucion(_revolucion& revolucion, int n, bool tapas) {
+  this->revolucion = &revolucion;
+  this->revolucion->parametros(tapas, n);
+}
+
+void UI::Muestra(TipoObjeto objeto, Visualizacion viMode, bool circulos, bool tapas) {
+  float color1[] = {1.0, 0.0, 0.0};
+  float color2[] = {0.0, 1.0, 0.0};
+  float color3[] = {0.0, 0.0, 1.0};
   const int grosor = 1;
 
   _triangulos3D* figura;
 
   if (objeto == PLY && this->objeto != NULL) {
     figura = this->objeto;
+  } else if (objeto == Revolucion) {
+    figura = this->revolucion;
+
+    if (this->revolucion->getTapas() != tapas) {
+      this->revolucion->parametros(tapas, this->revolucion->getNumCaras());
+    }
+
   } else if (objeto == Cubo) {
     figura = this->cubo;
   } else {
@@ -27,21 +39,21 @@ void UI::Muestra(TipoObjeto objeto, Visualizacion viMode, bool circulos) {
 
   switch (viMode) {
     case Puntos:
-      figura->draw_puntos(r, g, b, grosor);
+      figura->draw_puntos(color1, grosor);
       break;
     case Aristas:
-      figura->draw_aristas(r, g, b, grosor);
+      figura->draw_aristas(color1, grosor);
       break;
     case Solido:
-      figura->draw_solido(r, g, b);
+      figura->draw_solido(color1);
       break;
     case Ajedrez:
-      figura->draw_solido_ajedrez(r, g, b, r2, g2, b2);
+      figura->draw_solido_ajedrez(color1, color2);
       break;
     case Fade:
-      if (objeto != PLY) figura->draw_color_vertices();
+      figura->draw_color_vertices();
       break;
   }
 
-  if (circulos) figura->draw_circulos_vertices(0.1, 8);
+  if (circulos) figura->draw_circulos_vertices(0.1, 8, color3);
 }
