@@ -21,6 +21,7 @@ _revolucion* revolucion;
 _objetoPLY* objetoPLY;
 _piramide piramide;
 _cubo cubo;
+_cilindro cilindro();
 
 TipoObjeto objeto = Piramide;
 Visualizacion viMode = Aristas;
@@ -193,6 +194,9 @@ void normal_keys(unsigned char Tecla1,int x,int y) {
     objetoPLY = new _objetoPLY(archivo.c_str());
     ui.SetPLY(*objetoPLY);
     objeto = PLY;
+  } else if (key == '5') {
+    objeto = Cilindro;
+    cilindro.parametros(true, 15);
   }
 
   glutPostRedisplay();

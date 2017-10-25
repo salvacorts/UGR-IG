@@ -94,3 +94,8 @@ public:
     return n;
   }
 };
+
+class _cilindro : public _revolucion {
+public:
+  _cilindro(vector<_vertex3f> profile);
+};
