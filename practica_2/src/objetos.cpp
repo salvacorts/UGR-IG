@@ -320,3 +320,7 @@ void _revolucion::parametros(bool tapas, int num) {
 
   AddRandColors();
 }
+
+_cilindro::_cilindro() {
+  profile = {{0,-5,0},{2,-5,0},{2,5,0},{0,5,0}};
+}
