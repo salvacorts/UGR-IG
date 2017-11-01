@@ -323,7 +323,8 @@ void _brazoRobot::MueveAntebrazo(float alfa) {
 void _brazoRobot::DrawBase() {
   float color[] = {1.0, 0.0, 0.0};
   glPushMatrix();
-    glScalef(0.3, 2, 0.3);
+    glScalef(0.5, 3, 0.5);
+    glTranslatef(0, 0, 0);
     this->base.draw_solido(color);
   glPopMatrix();
 }
@@ -331,8 +332,8 @@ void _brazoRobot::DrawBase() {
 void _brazoRobot::DrawBrazo() {
   float color[] = {0.0, 1.0, 0.0};
   glPushMatrix();
-    glTranslatef(0, 3.1, 0.6);
-    glScalef(2, 0.3, 0.3);
+    glScalef(3, 0.5, 0.5);
+    glTranslatef(0, 0, 0);
     this->brazo.draw_solido(color);
   glPopMatrix();
 }
@@ -340,14 +341,16 @@ void _brazoRobot::DrawBrazo() {
 void _brazoRobot::DrawAntebrazo() {
   float color[] = {0.0, 0.0, 1.0};
   glPushMatrix();
-    glTranslatef(3.1, 3.1, 1.2);
-    glScalef(2, 0.3, 0.3);
+    glScalef(3, 0.5, 0.5);
+    glTranslatef(0, 0, 0);
     this->antebrazo.draw_solido(color);
   glPopMatrix();
 }
 
 
 void _brazoRobot::Draw() {
+  glTranslatef(0, 0, 0);
+
   // Base
   glPushMatrix();
     glRotatef(this->alfaBase, 0, 1, 0);
@@ -355,11 +358,13 @@ void _brazoRobot::Draw() {
 
     // Brazo
     glPushMatrix();
+      glTranslatef(0.5, 3, 0.5);
       glRotatef(this->alfaBrazo, 0, 0, 1);
       DrawBrazo();
-      
+
       // Antebrazo
       glPushMatrix();
+        glTranslatef(3, 0, 0.5);
         glRotatef(this->alfaAntebrazo, 0, 0, 1);
         DrawAntebrazo();
       glPopMatrix();

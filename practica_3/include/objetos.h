@@ -54,7 +54,7 @@ public:
 //*************************************************************************
 class _cubo : public _triangulos3D {
 public:
-	_cubo(float tam=2);
+	_cubo(float tam=1);
 };
 
 

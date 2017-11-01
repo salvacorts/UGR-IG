@@ -232,13 +232,13 @@ void special_keys(int Tecla1,int x,int y) {
       Observer_distance/=1.2;
       break;
     case GLUT_KEY_F1:
-      if (objeto == BrazoRobot) brazoRobot.MueveBase(10);
+      if (objeto == BrazoRobot) brazoRobot.MueveBase(3);
       break;
     case GLUT_KEY_F2:
-      if (objeto == BrazoRobot) brazoRobot.MueveBrazo(10);
+      if (objeto == BrazoRobot) brazoRobot.MueveBrazo(3);
       break;
     case GLUT_KEY_F3:
-      if (objeto == BrazoRobot) brazoRobot.MueveAntebrazo(10);
+      if (objeto == BrazoRobot) brazoRobot.MueveAntebrazo(3);
       break;
   }
 
