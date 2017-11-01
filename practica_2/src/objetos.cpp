@@ -236,7 +236,7 @@ void _revolucion::parametros(bool tapas, int num) {
   vertices.resize(pts_perfil*n);
   caras.clear();  // Si no se limpia, una vez que hay tapas, ahi se quedan
 
-  // Crea los vertices
+  // Crea los vertices (Da igual en el orden del PLY)
   for (int j = 0; j < n; j++) {
     for (int i = 0; i < pts_perfil; i++) {
       double alpha = 2.0*M_PI*j/(1.0*n);
@@ -245,6 +245,7 @@ void _revolucion::parametros(bool tapas, int num) {
       vertice_aux.z = perfil[i].x*sinf(alpha) + perfil[i].z*cos(alpha);
       vertice_aux.y = perfil[i].y;
 
+      // Perfil i + punto j del perfil * pts del perfil
       vertices[i+j*pts_perfil] = vertice_aux;
     }
   }
@@ -266,22 +267,6 @@ void _revolucion::parametros(bool tapas, int num) {
 
   // TODO: Calculas el punto mas alto y el mas bajo
   if (tapas) {
-    // _vertex3f pt_superior, pt_inferior;
-    // int y_min = INT_MAX;
-    // int y_max = INT_MIN;
-    //
-    // // Busca la cara mas alta y la mas baja
-    // for (int i = 0; i < perfil.size(); i++) {
-    //   if (perfil[i].y < y_min) {
-    //     pt_inferior = perfil[i];
-    //     y_min = perfil[i].y;
-    //   }
-    //
-    //   if (perfil[i].y > y_max) {
-    //     pt_superior = perfil[i];
-    //     y_max = perfil[i].y;
-    //   }
-    // }
 
     // Tapa Inferior
     if (fabs(perfil[0].x) > 0.0) {

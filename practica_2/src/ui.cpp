@@ -22,6 +22,8 @@ void UI::Muestra(TipoObjeto objeto, Visualizacion viMode, bool circulos, bool ta
 
   _triangulos3D* figura;
 
+  if (circulos) figura->draw_circulos_vertices(0.1, 8, color3);
+
   if (objeto == PLY && this->objeto != NULL) {
     figura = this->objeto;
   } else if (objeto == Revolucion) {
@@ -30,7 +32,6 @@ void UI::Muestra(TipoObjeto objeto, Visualizacion viMode, bool circulos, bool ta
     if (this->revolucion->getTapas() != tapas) {
       this->revolucion->parametros(tapas, this->revolucion->getNumCaras());
     }
-
   } else if (objeto == Cubo) {
     figura = this->cubo;
   } else {
@@ -54,6 +55,4 @@ void UI::Muestra(TipoObjeto objeto, Visualizacion viMode, bool circulos, bool ta
       figura->draw_color_vertices();
       break;
   }
-
-  if (circulos) figura->draw_circulos_vertices(0.1, 8, color3);
 }
