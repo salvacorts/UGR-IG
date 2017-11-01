@@ -1,6 +1,6 @@
 #include "objetos.h"
 
-enum TipoObjeto {Cubo, Piramide, PLY, Revolucion};
+enum TipoObjeto {Cubo, Piramide, PLY, Revolucion, Cilindro};
 
 enum Visualizacion {Puntos, Aristas, Solido, Ajedrez, Fade};
 
