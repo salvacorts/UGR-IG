@@ -34,7 +34,7 @@ void UI::Muestra(TipoObjeto objeto, Visualizacion viMode, bool circulos, bool ta
   } else if (objeto == BrazoRobot) {
     figura = this->brazoRobot;
 
-    this->brazoRobot->Draw();
+    this->brazoRobot->Draw(viMode);
     return; // No tiene sentido hacer el switch
   } else if (objeto == Cubo) {
     figura = this->cubo;

@@ -27,6 +27,8 @@ GL/gl.h
 -
 vertex.h
 ../include/vertex.h
+viModes.h
+../include/viModes.h
 file_ply_stl.h
 ../include/file_ply_stl.h
 stdlib.h
@@ -48,6 +50,8 @@ math.h
 iostream
 -
 
+../include/viModes.h
+
 /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/file_ply_stl.cpp
 file_ply_stl.h
 /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/file_ply_stl.h
@@ -66,6 +70,8 @@ stdio.h
 GL/glut.h
 -
 ctype.h
+-
+unistd.h
 -
 ui.h
 /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/ui.h

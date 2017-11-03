@@ -10,6 +10,7 @@
 #include "stdio.h"
 #include <GL/glut.h>
 #include <ctype.h>
+#include <unistd.h>
 #include "ui.h" // De aqui se hereda objetos.h
 
 
@@ -232,13 +233,33 @@ void special_keys(int Tecla1,int x,int y) {
       Observer_distance/=1.2;
       break;
     case GLUT_KEY_F1:
-      if (objeto == BrazoRobot) brazoRobot.MueveBase(3);
+      if (objeto == BrazoRobot) brazoRobot.MueveBase(5);
       break;
     case GLUT_KEY_F2:
-      if (objeto == BrazoRobot) brazoRobot.MueveBrazo(3);
+      if (objeto == BrazoRobot) brazoRobot.MueveBase(-5);
       break;
     case GLUT_KEY_F3:
-      if (objeto == BrazoRobot) brazoRobot.MueveAntebrazo(3);
+      if (objeto == BrazoRobot) brazoRobot.MueveBrazo(5);
+      break;
+    case GLUT_KEY_F4:
+      if (objeto == BrazoRobot) brazoRobot.MueveBrazo(-5);
+      break;
+    case GLUT_KEY_F5:
+      if (objeto == BrazoRobot) brazoRobot.MueveAntebrazo(5);
+      break;
+    case GLUT_KEY_F6:
+      if (objeto == BrazoRobot) brazoRobot.MueveAntebrazo(-5);
+      break;
+    case GLUT_KEY_F7:
+      if (objeto == BrazoRobot) {
+        // for (float alfa = 0; alfa <= 360.0; alfa+=5) {
+        //   brazoRobot.RotaHerramienta(alfa);
+        //   cout << alfa << endl;
+        //   glutPostRedisplay();
+        //   usleep(100000);
+        // }
+        brazoRobot.RotaHerramienta(5);
+      }
       break;
   }
 

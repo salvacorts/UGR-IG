@@ -1,9 +1,5 @@
 #include "objetos.h"
 
-enum TipoObjeto {Cubo, Piramide, PLY, Revolucion, BrazoRobot};
-
-enum Visualizacion {Puntos, Aristas, Solido, Ajedrez, Fade};
-
 class UI {
 public:
   _brazoRobot* brazoRobot;

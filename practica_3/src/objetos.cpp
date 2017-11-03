@@ -320,53 +320,95 @@ void _brazoRobot::MueveAntebrazo(float alfa) {
   this->alfaAntebrazo = fmod((this->alfaAntebrazo + alfa), 360.0);
 }
 
-void _brazoRobot::DrawBase() {
-  float color[] = {1.0, 0.0, 0.0};
+void _brazoRobot::RotaHerramienta(float alfa) {
+  this->alfaHerramienta = fmod((this->alfaHerramienta + alfa), 360.0);
+}
+
+void _brazoRobot::DrawBase(Visualizacion modo) {
+  float color1[] = {1.0, 0.0, 0.0};
+  float color2[] = {1.0, 1.0, 0.0};
+
   glPushMatrix();
     glScalef(0.5, 3, 0.5);
     glTranslatef(0, 0, 0);
-    this->base.draw_solido(color);
+    drawParte(this->base, modo, color1, color2);
   glPopMatrix();
 }
 
-void _brazoRobot::DrawBrazo() {
-  float color[] = {0.0, 1.0, 0.0};
+void _brazoRobot::DrawBrazo(Visualizacion modo) {
+  float color1[] = {0.0, 1.0, 0.0};
+  float color2[] = {0.5, 1.0, 0.5};
+
   glPushMatrix();
+    glTranslatef(-0.25, -0.25, -0.5);
     glScalef(3, 0.5, 0.5);
-    glTranslatef(0, 0, 0);
-    this->brazo.draw_solido(color);
+    drawParte(this->brazo, modo, color1, color2);
   glPopMatrix();
 }
 
-void _brazoRobot::DrawAntebrazo() {
-  float color[] = {0.0, 0.0, 1.0};
+void _brazoRobot::DrawAntebrazo(Visualizacion modo) {
+  float color1[] = {0.0, 0.0, 1.0};
+  float color2[] = {0.0, 1.0, 1.0};
+
   glPushMatrix();
+    glTranslatef(-0.25, -0.25, -0.5);
     glScalef(3, 0.5, 0.5);
-    glTranslatef(0, 0, 0);
-    this->antebrazo.draw_solido(color);
+    drawParte(this->antebrazo, modo, color1, color2);
   glPopMatrix();
 }
 
+void _brazoRobot::DrawHerramienta(Visualizacion modo) {
+  float color1[] = {1.0, 0.0, 1.0};
+  float color2[] = {0.0, 1.0, 0.0};
 
-void _brazoRobot::Draw() {
-  glTranslatef(0, 0, 0);
+  glPushMatrix();
+    glRotatef(270, 0, 0, 1);
+    glRotatef(this->alfaHerramienta, 0, 1, 0);
+    glScalef(0.35, 0.35, 0.35);
+    glTranslatef(0, 0, 0);
+    drawParte(this->herramienta, modo, color1, color2);
+  glPopMatrix();
+}
 
+void _brazoRobot::drawParte(_triangulos3D& parte, Visualizacion modo, float color[], float color2[]) {
+  switch (modo) {
+    case Puntos:
+      parte.draw_puntos(color, 1);
+      break;
+    case Aristas:
+      parte.draw_aristas(color, 1);
+      break;
+    case Solido:
+      parte.draw_solido(color);
+      break;
+    case Ajedrez:
+      parte.draw_solido_ajedrez(color, color2);
+      break;
+    case Fade:
+      parte.draw_color_vertices();
+      break;
+  }
+}
+
+void _brazoRobot::Draw(Visualizacion modo) {
   // Base
   glPushMatrix();
     glRotatef(this->alfaBase, 0, 1, 0);
-    DrawBase();
+    DrawBase(modo);
 
     // Brazo
     glPushMatrix();
-      glTranslatef(0.5, 3, 0.5);
+      glTranslatef(0.25, 2.5, 1);
       glRotatef(this->alfaBrazo, 0, 0, 1);
-      DrawBrazo();
+      DrawBrazo(modo);
 
       // Antebrazo
       glPushMatrix();
-        glTranslatef(3, 0, 0.5);
+        glTranslatef(2.5, 0, 0.5);
         glRotatef(this->alfaAntebrazo, 0, 0, 1);
-        DrawAntebrazo();
+        DrawAntebrazo(modo);
+        glTranslatef(2.75, 0, -0.25);
+        DrawHerramienta(modo);
       glPopMatrix();
     glPopMatrix();
   glPopMatrix();

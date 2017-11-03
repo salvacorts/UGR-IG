@@ -9,16 +9,19 @@ CMakeFiles/practica3.dir/src/objetos.cpp.o
  ../include/file_ply_stl.h
  ../include/objetos.h
  ../include/vertex.h
+ ../include/viModes.h
  /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/objetos.cpp
 CMakeFiles/practica3.dir/src/practica2.cpp.o
  ../include/file_ply_stl.h
  ../include/objetos.h
  ../include/ui.h
  ../include/vertex.h
+ ../include/viModes.h
  /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/practica2.cpp
 CMakeFiles/practica3.dir/src/ui.cpp.o
  ../include/file_ply_stl.h
  ../include/objetos.h
  ../include/ui.h
  ../include/vertex.h
+ ../include/viModes.h
  /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/ui.cpp

@@ -5,6 +5,7 @@
 #include <vector>
 #include <GL/gl.h>
 #include "vertex.h"
+#include "viModes.h"
 #include "file_ply_stl.h"
 #include <stdlib.h>
 #include <cmath>
@@ -100,18 +101,23 @@ private:
   _cubo base;
   _cubo brazo;
   _cubo antebrazo;
+  _piramide herramienta;
 
   float alfaBase = 0;
   float alfaBrazo = 0;
   float alfaAntebrazo = 0;
+  float alfaHerramienta = 0;
 
-  void DrawBase();
-  void DrawBrazo();
-  void DrawAntebrazo();
+  void DrawBase(Visualizacion modo);
+  void DrawBrazo(Visualizacion modo);
+  void DrawAntebrazo(Visualizacion modo);
+  void DrawHerramienta(Visualizacion modo);
+  void drawParte(_triangulos3D& parte, Visualizacion modo, float color[], float color2[]);
 
 public:
-  void Draw();
+  void Draw(Visualizacion modo=Solido);
   void MueveBase(float alfa);
   void MueveBrazo(float alfa);
   void MueveAntebrazo(float alfa);
+  void RotaHerramienta(float alfa);
 };
