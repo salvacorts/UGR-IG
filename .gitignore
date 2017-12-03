@@ -1,2 +1,4 @@
 built/*
 bin/*
+.directory
+.clang_complete

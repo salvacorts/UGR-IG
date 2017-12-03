@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/practica4.dir/src/practica2.cpp.o CMakeFiles/practica4.dir/src/objetos.cpp.o CMakeFiles/practica4.dir/src/ui.cpp.o CMakeFiles/practica4.dir/src/file_ply_stl.cpp.o  -o ../bin/practica4 -rdynamic -lGLU -lGL -lglut -lXmu -lXi 

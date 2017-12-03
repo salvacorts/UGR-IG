@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3
+CMAKE_SOURCE_DIR = /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/build
+CMAKE_BINARY_DIR = /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/practica3.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/practica3.dir/flags.make
 
 CMakeFiles/practica3.dir/src/practica2.cpp.o: CMakeFiles/practica3.dir/flags.make
 CMakeFiles/practica3.dir/src/practica2.cpp.o: ../src/practica2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/practica3.dir/src/practica2.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/practica3.dir/src/practica2.cpp.o -c /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/practica2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/practica3.dir/src/practica2.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/practica3.dir/src/practica2.cpp.o -c /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/practica2.cpp
 
 CMakeFiles/practica3.dir/src/practica2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/practica3.dir/src/practica2.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/practica2.cpp > CMakeFiles/practica3.dir/src/practica2.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/practica2.cpp > CMakeFiles/practica3.dir/src/practica2.cpp.i
 
 CMakeFiles/practica3.dir/src/practica2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/practica3.dir/src/practica2.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/practica2.cpp -o CMakeFiles/practica3.dir/src/practica2.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/practica2.cpp -o CMakeFiles/practica3.dir/src/practica2.cpp.s
 
 CMakeFiles/practica3.dir/src/practica2.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/practica3.dir/src/practica2.cpp.o.provides.build: CMakeFiles/practica
 
 CMakeFiles/practica3.dir/src/objetos.cpp.o: CMakeFiles/practica3.dir/flags.make
 CMakeFiles/practica3.dir/src/objetos.cpp.o: ../src/objetos.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/practica3.dir/src/objetos.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/practica3.dir/src/objetos.cpp.o -c /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/objetos.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/practica3.dir/src/objetos.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/practica3.dir/src/objetos.cpp.o -c /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/objetos.cpp
 
 CMakeFiles/practica3.dir/src/objetos.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/practica3.dir/src/objetos.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/objetos.cpp > CMakeFiles/practica3.dir/src/objetos.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/objetos.cpp > CMakeFiles/practica3.dir/src/objetos.cpp.i
 
 CMakeFiles/practica3.dir/src/objetos.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/practica3.dir/src/objetos.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/objetos.cpp -o CMakeFiles/practica3.dir/src/objetos.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/objetos.cpp -o CMakeFiles/practica3.dir/src/objetos.cpp.s
 
 CMakeFiles/practica3.dir/src/objetos.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/practica3.dir/src/objetos.cpp.o.provides.build: CMakeFiles/practica3.
 
 CMakeFiles/practica3.dir/src/ui.cpp.o: CMakeFiles/practica3.dir/flags.make
 CMakeFiles/practica3.dir/src/ui.cpp.o: ../src/ui.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/practica3.dir/src/ui.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/practica3.dir/src/ui.cpp.o -c /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/ui.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/practica3.dir/src/ui.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/practica3.dir/src/ui.cpp.o -c /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/ui.cpp
 
 CMakeFiles/practica3.dir/src/ui.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/practica3.dir/src/ui.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/ui.cpp > CMakeFiles/practica3.dir/src/ui.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/ui.cpp > CMakeFiles/practica3.dir/src/ui.cpp.i
 
 CMakeFiles/practica3.dir/src/ui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/practica3.dir/src/ui.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/ui.cpp -o CMakeFiles/practica3.dir/src/ui.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/ui.cpp -o CMakeFiles/practica3.dir/src/ui.cpp.s
 
 CMakeFiles/practica3.dir/src/ui.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/practica3.dir/src/ui.cpp.o.provides.build: CMakeFiles/practica3.dir/s
 
 CMakeFiles/practica3.dir/src/file_ply_stl.cpp.o: CMakeFiles/practica3.dir/flags.make
 CMakeFiles/practica3.dir/src/file_ply_stl.cpp.o: ../src/file_ply_stl.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/practica3.dir/src/file_ply_stl.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/practica3.dir/src/file_ply_stl.cpp.o -c /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/file_ply_stl.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/practica3.dir/src/file_ply_stl.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/practica3.dir/src/file_ply_stl.cpp.o -c /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/file_ply_stl.cpp
 
 CMakeFiles/practica3.dir/src/file_ply_stl.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/practica3.dir/src/file_ply_stl.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/file_ply_stl.cpp > CMakeFiles/practica3.dir/src/file_ply_stl.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/file_ply_stl.cpp > CMakeFiles/practica3.dir/src/file_ply_stl.cpp.i
 
 CMakeFiles/practica3.dir/src/file_ply_stl.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/practica3.dir/src/file_ply_stl.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/file_ply_stl.cpp -o CMakeFiles/practica3.dir/src/file_ply_stl.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/file_ply_stl.cpp -o CMakeFiles/practica3.dir/src/file_ply_stl.cpp.s
 
 CMakeFiles/practica3.dir/src/file_ply_stl.cpp.o.requires:
 
@@ -174,7 +174,7 @@ practica3_EXTERNAL_OBJECTS =
 ../bin/practica3: /usr/lib/x86_64-linux-gnu/libXmu.so
 ../bin/practica3: /usr/lib/x86_64-linux-gnu/libXi.so
 ../bin/practica3: CMakeFiles/practica3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ../bin/practica3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ../bin/practica3"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/practica3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -194,6 +194,6 @@ CMakeFiles/practica3.dir/clean:
 .PHONY : CMakeFiles/practica3.dir/clean
 
 CMakeFiles/practica3.dir/depend:
-	cd /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3 /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3 /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/build /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/build /home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/build/CMakeFiles/practica3.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3 /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3 /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/build /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/build /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/build/CMakeFiles/practica3.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/practica3.dir/depend
 

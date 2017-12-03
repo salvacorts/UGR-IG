@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/file_ply_stl.cpp" "/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/build/CMakeFiles/practica3.dir/src/file_ply_stl.cpp.o"
-  "/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/objetos.cpp" "/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/build/CMakeFiles/practica3.dir/src/objetos.cpp.o"
-  "/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/practica2.cpp" "/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/build/CMakeFiles/practica3.dir/src/practica2.cpp.o"
-  "/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/ui.cpp" "/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/build/CMakeFiles/practica3.dir/src/ui.cpp.o"
+  "/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/file_ply_stl.cpp" "/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/build/CMakeFiles/practica3.dir/src/file_ply_stl.cpp.o"
+  "/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/objetos.cpp" "/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/build/CMakeFiles/practica3.dir/src/objetos.cpp.o"
+  "/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/practica2.cpp" "/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/build/CMakeFiles/practica3.dir/src/practica2.cpp.o"
+  "/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/ui.cpp" "/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/build/CMakeFiles/practica3.dir/src/ui.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -52,21 +52,21 @@ iostream
 
 ../include/viModes.h
 
-/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/file_ply_stl.cpp
+/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/file_ply_stl.cpp
 file_ply_stl.h
-/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/file_ply_stl.h
+/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/file_ply_stl.h
 
-/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/objetos.cpp
+/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/objetos.cpp
 objetos.h
-/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/objetos.h
+/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/objetos.h
 climits
 -
 
-/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/practica2.cpp
+/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/practica2.cpp
 stdlib.h
-/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/stdlib.h
+/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/stdlib.h
 stdio.h
-/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/stdio.h
+/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/stdio.h
 GL/glut.h
 -
 ctype.h
@@ -74,9 +74,9 @@ ctype.h
 unistd.h
 -
 ui.h
-/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/ui.h
+/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/ui.h
 
-/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/ui.cpp
+/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/ui.cpp
 ui.h
-/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/src/ui.h
+/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/src/ui.h
 

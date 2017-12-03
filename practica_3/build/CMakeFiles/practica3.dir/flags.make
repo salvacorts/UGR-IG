@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/salva/Dropbox/UGR/3/1st/IG/Practicas/practica_3/include 
+CXX_INCLUDES = -I/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_3/include 
 
