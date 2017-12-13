@@ -6,12 +6,14 @@ CMakeFiles/practica4.dir/src/file_ply_stl.cpp.o
  ../include/vertex.h
  /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_4/src/file_ply_stl.cpp
 CMakeFiles/practica4.dir/src/objetos.cpp.o
+ ../include/CImg.h
  ../include/file_ply_stl.h
  ../include/objetos.h
  ../include/vertex.h
  ../include/viModes.h
  /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_4/src/objetos.cpp
 CMakeFiles/practica4.dir/src/practica2.cpp.o
+ ../include/CImg.h
  ../include/file_ply_stl.h
  ../include/objetos.h
  ../include/ui.h
@@ -19,6 +21,7 @@ CMakeFiles/practica4.dir/src/practica2.cpp.o
  ../include/viModes.h
  /home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_4/src/practica2.cpp
 CMakeFiles/practica4.dir/src/ui.cpp.o
+ ../include/CImg.h
  ../include/file_ply_stl.h
  ../include/objetos.h
  ../include/ui.h

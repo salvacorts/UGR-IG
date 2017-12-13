@@ -17,6 +17,7 @@
 const int AXIS_SIZE = 5000;
 
 // Objeto a dibujar
+_imagen textura;
 _brazoRobot brazoRobot;
 _revolucion* revolucion;
 _objetoPLY* objetoPLY;
@@ -26,10 +27,12 @@ _cubo cubo;
 TipoObjeto objeto = Piramide;
 Visualizacion viMode = Aristas;
 Iluminacion iluminacion = Plana;
+Material material = Esmeralda;
 bool circulos = false;
 bool tapas = false;
 
 float lAlfa, lx, ly, lz;
+float angulo_luz = 30.0;
 
 UI ui(piramide, cubo, brazoRobot);
 
@@ -107,7 +110,7 @@ void draw_axis() {
 // Funcion que dibuja los objetos
 //***************************************************************************
 void draw_objects() {
-  ui.Muestra(objeto, viMode, iluminacion, circulos, tapas);
+  ui.Muestra(objeto, viMode, iluminacion, material, circulos, tapas);
 }
 
 
@@ -116,15 +119,23 @@ void draw_objects() {
 //***************************************************************************
 
 void draw_Luz1() {
-  GLfloat luz_posicion[] = {15.0, 10.0, 15.0 ,1.0};
+  // GLfloat luz_posicion[] = {15.0, 10.0, 15.0 ,1.0};
+  // GLfloat ambiente[] = {0.2, 0.2, 0.2 ,1.0};
+	// GLfloat difusa[] = {1.0, 1.0, 1.0, 1.0 };
+	// GLfloat especular[] = { 1.0, 1.0, 1.0, 1.0 };
   GLfloat ambiente[] = {0.2, 0.2, 0.2 ,1.0};
 	GLfloat difusa[] = {1.0, 1.0, 1.0, 1.0 };
 	GLfloat especular[] = { 1.0, 1.0, 1.0, 1.0 };
+  GLfloat luz_posicion[] = {0.0, 15.0, 0.0 ,1.0};
+  GLfloat luz_direccion[] = {0.0, -1.0, 0.0};
 
   glLightfv(GL_LIGHT1, GL_AMBIENT, (GLfloat *) &ambiente);
 	glLightfv(GL_LIGHT1, GL_DIFFUSE, (GLfloat *) &difusa);
 	glLightfv(GL_LIGHT1, GL_SPECULAR, (GLfloat *) &especular);
+
   glLightfv(GL_LIGHT1, GL_POSITION, (GLfloat *) &luz_posicion);
+  glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, (GLfloat *) &luz_direccion);
+  glLightfv(GL_LIGHT1, GL_SPOT_CUTOFF, (GLfloat *) &angulo_luz);
 
   glDisable(GL_LIGHT0);
   glDisable(GL_LIGHT2);
@@ -192,8 +203,15 @@ void normal_keys(unsigned char Tecla1,int x,int y) {
   unsigned char key = toupper(Tecla1);
   if (key == 'Q') exit(0);
 
+
   if (key == 'P') {
     viMode = Puntos;
+  } else if (key == 'A') {
+    angulo_luz = fmod((angulo_luz + 3.0), 90.0);
+    std::cout << "angulo_luz = " << angulo_luz << '\n';
+  } else if (key == 'S') {
+    angulo_luz = fabs(fmod((angulo_luz - 3.0), 90.0));
+    std::cout << "angulo_luz = " << angulo_luz << '\n';
   } else if (key == 'N') {
     viMode = Light;
     iluminacion = Plana;
@@ -206,7 +224,13 @@ void normal_keys(unsigned char Tecla1,int x,int y) {
   } else if (key == 'L') {
     viMode = LightMoving;
     iluminacion = Suave;
-  } else if (key == 'T') {
+  } else if (key == 'Z') {
+    material = Oro;
+  } else if (key == 'X') {
+    material = Obsidiana;
+  } else if (key == 'C') {
+    material = Esmeralda;
+  } else if (key == 'C') {
     tapas = !tapas;
   } else if (key == 'J') {
     circulos = !circulos;
@@ -250,8 +274,17 @@ void normal_keys(unsigned char Tecla1,int x,int y) {
     objeto = PLY;
   } else if (key == '5') {
     objeto = BrazoRobot;
+  } else if (key == 'T') {
+    string archivo;
+
+    cout << "[>] Ruta textura: ";
+    cin >> archivo;
+
+    textura.Load(archivo.c_str());
+    ui.SetTextura(textura);
+    objeto = Textura;
   }
-  // TODO: Añadir los MueveBase, MueveBrazo y MueveAntebrazo
+
 
   glutPostRedisplay();
 }
@@ -415,5 +448,7 @@ int main(int argc, char **argv) {
 
   // inicio del bucle de eventos
   glutMainLoop();
+
+  textura.libera();
   return 0;
 }

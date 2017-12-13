@@ -28,7 +28,6 @@ int _file_ply::open(const string &File_name)
 //******************************************************************************
 //
 //******************************************************************************
-
 void _file_ply::get_token(istringstream &Line_stream1,string &Token1)
 {
 //  cout <<  "buscando en:" << Line_stream1.str() << endl;
@@ -39,7 +38,6 @@ void _file_ply::get_token(istringstream &Line_stream1,string &Token1)
 //******************************************************************************
 //
 //******************************************************************************
-
 bool _file_ply::get_new_line(ifstream &File,istringstream &Line_stream)
 {
   string Line;

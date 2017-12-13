@@ -173,6 +173,10 @@ practica4_EXTERNAL_OBJECTS =
 ../bin/practica4: /usr/lib/x86_64-linux-gnu/libglut.so
 ../bin/practica4: /usr/lib/x86_64-linux-gnu/libXmu.so
 ../bin/practica4: /usr/lib/x86_64-linux-gnu/libXi.so
+../bin/practica4: /usr/lib/x86_64-linux-gnu/libSM.so
+../bin/practica4: /usr/lib/x86_64-linux-gnu/libICE.so
+../bin/practica4: /usr/lib/x86_64-linux-gnu/libX11.so
+../bin/practica4: /usr/lib/x86_64-linux-gnu/libXext.so
 ../bin/practica4: CMakeFiles/practica4.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/salva/Dropbox/UGR/3/1st/IG/Practicas-IG/practica_4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ../bin/practica4"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/practica4.dir/link.txt --verbose=$(VERBOSE)

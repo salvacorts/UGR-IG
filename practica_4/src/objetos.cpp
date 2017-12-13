@@ -506,3 +506,69 @@ void _brazoRobot::Draw(Visualizacion modo) {
     glPopMatrix();
   glPopMatrix();
 }
+
+_imagen::_imagen() {}
+
+void _imagen::Load(const char path[]) {
+  // Carga la imagen
+  this->logo.load(path);
+
+  // Mete los datos de la imagen en un array
+  for (long y = 0; y < logo.height(); y ++) {
+    for (long x = 0; x < logo.width(); x ++) {
+      unsigned char *r = logo.data(x, y, 0, 0);
+      unsigned char *g = logo.data(x, y, 0, 1);
+      unsigned char *b = logo.data(x, y, 0, 2);
+      data.push_back(*r);
+      data.push_back(*g);
+      data.push_back(*b);
+    }
+  }
+
+  // Genera La textura
+  // glGenTextures(1, &textura_id);
+  // glBindTexture(GL_TEXTURE_2D, textura_id);
+
+  // Genera la textura
+  // glActiveTexture(GL_TEXTURE0);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+  // Transfiere a la GPU
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, this->logo.width(), this->logo.height(),
+		            0, GL_RGB, GL_UNSIGNED_BYTE, &data[0]);
+}
+
+void _imagen::draw() {
+  glEnable(GL_TEXTURE_2D);
+  // glActiveTexture(GL_TEXTURE0);
+  // glBindTexture(GL_TEXTURE_2D, this->textura_id);
+
+  glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+  glColor3f(1,0,0);
+  glBegin(GL_QUADS);
+    glNormal3f(0, 0, 1);
+    glVertex3f(0, 5, 0);
+    glVertex3f(0, 0, 0);
+    glVertex3f(5, 0, 0);
+    glVertex3f(5, 5, 0);
+  glEnd();
+
+  glColor3f(1,1,1);
+  glBegin(GL_QUADS);
+    glNormal3f(0, 0, 1);
+    glTexCoord2f(0, 0); glVertex3f(1, 4, 0);
+    glTexCoord2f(0, 1); glVertex3f(1, 1, 0);
+    glTexCoord2f(1, 1); glVertex3f(4, 1, 0);
+    glTexCoord2f(1, 0); glVertex3f(4, 4, 0);
+  glEnd();
+
+  // glBindTexture(GL_TEXTURE_2D, 0);
+  glDisable(GL_TEXTURE_2D);
+}
+
+void _imagen::libera() {
+  // glDeleteTextures(1, &textura_id);
+}

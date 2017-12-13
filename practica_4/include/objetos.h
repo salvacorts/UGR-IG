@@ -9,7 +9,9 @@
 #include "file_ply_stl.h"
 #include <stdlib.h>
 #include <cmath>
+#include "CImg.h"
 
+using namespace cimg_library;
 using namespace std;
 
 //*************************************************************************
@@ -130,4 +132,17 @@ public:
   void MueveBrazo(float alfa);
   void MueveAntebrazo(float alfa);
   void RotaHerramienta(float alfa);
+};
+
+class _imagen : public _triangulos3D {
+private:
+  std::vector<unsigned char> data;
+  CImg<unsigned char> logo;
+  GLuint textura_id;
+
+public:
+  _imagen();
+  void Load(const char path[]);
+  void draw();
+  void libera();
 };
