@@ -35,9 +35,9 @@ void _puntos3D::AddRandColors() {
 _triangulos3D::_triangulos3D() {}
 
 void _triangulos3D::set_color(float r, float g, float b) {
-  color[0] = r;
-  color[1] = g;
-  color[2] = b;
+  this->color[0] = r;
+  this->color[1] = g;
+  this->color[2] = b;
 }
 
 void _triangulos3D::draw_color_vertices() {

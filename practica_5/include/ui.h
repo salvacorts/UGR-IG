@@ -14,5 +14,5 @@ public:
   void SetEscena(_triangulos3D* escena[], int objetosEscena);
   void SetPLY(_objetoPLY& o);
   void SetRevolucion(_revolucion& revolucion, int n, bool tapas=false);
-  void Muestra(TipoObjeto objeto, Visualizacion viMode, _triangulos3D escena[], int objetosEscena, bool circulos, bool tapas, bool enEscena);
+  void Muestra(TipoObjeto objeto, Visualizacion viMode, _triangulos3D* escena[], int objetosEscena, bool circulos, bool tapas, bool enEscena);
 };

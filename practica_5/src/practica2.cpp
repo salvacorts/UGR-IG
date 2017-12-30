@@ -33,7 +33,7 @@ _cubo cubo;
 
 _triangulos3D* figura1;
 _triangulos3D* figura2;
-_triangulos3D* escena;
+_triangulos3D** escena;
 bool figura1_color_original = true;
 bool figura2_color_original = true;
 int objetosEscena;
@@ -128,10 +128,6 @@ void draw_axis() {
 //***************************************************************************
 void draw_objects() {
   ui.Muestra(objeto, viMode, escena, objetosEscena, circulos, tapas, enEscena);
-
-  if (rendermode == GL_SELECT) {
-		glLoadName(2);
-  }
 }
 
 
@@ -228,8 +224,7 @@ void procesar_hits(GLint hits, GLuint *names) {
 
 
 	if (hits > 0) {
-		if (names[4+3] == 1) {
-      std::cout << "/* a */" << '\n';
+		if (names[0+3] == 1) {
 			if (figura1_color_original) {
 				figura1->set_color(0, 1, 0);
 				figura1_color_original = false;
@@ -237,8 +232,7 @@ void procesar_hits(GLint hits, GLuint *names) {
 				figura1->set_color(1, 0, 0);
 				figura1_color_original = true;
 			}
-		} else if (names[4+3] == 2) {
-      std::cout << "/* b */" << '\n';
+		} else if (names[0+3] == 2) {
 			if (figura2_color_original) {
 				figura1->set_color(0, 1, 0);
 				figura2_color_original = false;
@@ -248,6 +242,8 @@ void procesar_hits(GLint hits, GLuint *names) {
 			}
 		}
 	}
+
+  draw_objects();
 }
 
 void pick(int x, int y) {
@@ -275,10 +271,12 @@ void pick(int x, int y) {
 	glFrustum(-Window_width,Window_width,-Window_height,Window_height,Front_plane,Back_plane);
 
 	// Dibujar la escena
+	glMatrixMode(GL_MODELVIEW);
 	draw_scene();
 
 	// Pasar OpenGL a modo render
 	hits = glRenderMode(GL_RENDER);
+  rendermode = GL_RENDER;
 
 	// Restablecer la transformación de proyección
 	glMatrixMode(GL_PROJECTION);
@@ -305,7 +303,7 @@ void ChangeView(int x, int y) {
 }
 
 void clickRaton(int boton, int estado, int x, int y) {
-	if (boton == GLUT_LEFT_BUTTON) {
+	if (boton == GLUT_LEFT_BUTTON && estado == GLUT_DOWN) {
     pick(x, y);
   } else if (boton == GLUT_RIGHT_BUTTON) {
     if (estado == GLUT_DOWN) {
@@ -408,9 +406,9 @@ void normal_keys(unsigned char Tecla1,int x,int y) {
       figura1->set_color(1, 0, 0);
       figura2->set_color(1, 0, 0);
 
-      escena = new _triangulos3D[2];
-      escena[0] = *figura1;
-      escena[1] = *figura2;
+      escena = new _triangulos3D*[2];
+      escena[0] = figura1;
+      escena[1] = figura2;
       objetosEscena = 2;
     }
 
