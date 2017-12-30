@@ -51,6 +51,8 @@ UI ui(piramide, cubo, brazoRobot);
 GLfloat Observer_distance;
 GLfloat Observer_angle_x;
 GLfloat Observer_angle_y;
+bool dragMode = false;
+int lastX=0, lastY=0;
 
 // variables que controlan la ventana y la transformacion de perspectiva
 GLfloat Window_width, Window_height, Front_plane, Back_plane;
@@ -213,19 +215,20 @@ void draw_scene(void) {
 }
 
 void procesar_hits(GLint hits, GLuint *names) {
+  cout << "Hits: " << hits << endl;
 
-  // cout << "Hits: " << hits << endl;
-  //
-	// for (int i = 0; i < hits; i++) {
-	// 	cout << "Numero: " << names[i * 4] << endl;
-  //
-	// 	cout << "Min Z: " << names[i * 4 + 1] << endl;
-	// 	cout << "Max Z: " << names[i * 4 + 2] << endl;
-	// 	cout << "Nombre en la pila: " << names[i * 4 + 3] << endl;
-  // }
+	for (int i = 0; i < hits; i++)
+	{
+		cout << "Numero: " << names[i * 4] << endl;
+
+		cout << "Min Z: " << names[i * 4 + 1] << endl;
+		cout << "Max Z: " << names[i * 4 + 2] << endl;
+		cout << "Nombre en la pila: " << names[i * 4 + 3] << endl;
+	}
+
 
 	if (hits > 0) {
-		if (names[0+3] == 1) {
+		if (names[4+3] == 1) {
       std::cout << "/* a */" << '\n';
 			if (figura1_color_original) {
 				figura1->set_color(0, 1, 0);
@@ -234,7 +237,7 @@ void procesar_hits(GLint hits, GLuint *names) {
 				figura1->set_color(1, 0, 0);
 				figura1_color_original = true;
 			}
-		} else if (names[0+3] == 2) {
+		} else if (names[4+3] == 2) {
       std::cout << "/* b */" << '\n';
 			if (figura2_color_original) {
 				figura1->set_color(0, 1, 0);
@@ -248,49 +251,71 @@ void procesar_hits(GLint hits, GLuint *names) {
 }
 
 void pick(int x, int y) {
-  cout << "PICK x=" << x << ",y=" << y << endl;
+  cout << "PICK x=" << x << ", y=" << y << endl;
 
-	GLuint selectBuf[100]={0};
+	GLuint selectBuf[100] = {0};
 	GLint viewport[4], hits=0;
 
 	// Declarar buffer de selección
 	glSelectBuffer(100, selectBuf);
 
 	// Obtener los parámetros del viewport
-	glGetIntegerv (GL_VIEWPORT, viewport);
+	glGetIntegerv(GL_VIEWPORT, viewport);
 
 	// Pasar OpenGL a modo selección
 	rendermode = GL_SELECT;
-	glRenderMode (GL_SELECT);
+	glRenderMode(GL_SELECT);
 	glInitNames();
 	glPushName(0);
 
 	// Fijar la transformación de proyección para la selección
-	glMatrixMode (GL_PROJECTION);
+	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPickMatrix (x,(viewport[3] - y),5.0, 5.0, viewport);
+	gluPickMatrix(x,(viewport[3] - y),5.0, 5.0, viewport);
 	glFrustum(-Window_width,Window_width,-Window_height,Window_height,Front_plane,Back_plane);
 
 	// Dibujar la escena
 	draw_scene();
 
 	// Pasar OpenGL a modo render
-	hits = glRenderMode (GL_RENDER);
+	hits = glRenderMode(GL_RENDER);
 
 	// Restablecer la transformación de proyección
-	glMatrixMode (GL_PROJECTION);
+	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glFrustum(-Window_width,Window_width,-Window_height,Window_height,Front_plane,Back_plane);
 
 	// Procesar el contenido del buffer de selección
 	procesar_hits(hits, selectBuf);
 
-	// Dibujar la escena para actualizar cambios
-  draw_scene();
+  glMatrixMode(GL_MODELVIEW);
+  glutPostRedisplay();
+}
+
+void ChangeView(int x, int y) {
+  if (!dragMode) return;
+
+  Observer_angle_y += x - lastX;
+  Observer_angle_x += y - lastY;
+
+  lastX = x;
+  lastY = y;
+
+  glutPostRedisplay();
 }
 
 void clickRaton(int boton, int estado, int x, int y) {
-	if (boton == GLUT_LEFT_BUTTON) pick(x, y);
+	if (boton == GLUT_LEFT_BUTTON) {
+    pick(x, y);
+  } else if (boton == GLUT_RIGHT_BUTTON) {
+    if (estado == GLUT_DOWN) {
+      dragMode = true;
+      lastX = x;
+      lastY = y;
+    } else {
+      dragMode = false;
+    }
+  }
 }
 
 //***************************************************************************
@@ -537,6 +562,8 @@ int main(int argc, char **argv) {
   glutSpecialFunc(special_keys);
   // Para el raton
   glutMouseFunc(clickRaton);
+  // Para cuando se mueve el clickRaton
+  glutMotionFunc(ChangeView);
 
   // funcion de inicialización
   initialize();

@@ -18,6 +18,7 @@ void UI::SetRevolucion(_revolucion& revolucion, int n, bool tapas) {
 void UI::Muestra(TipoObjeto objeto, Visualizacion viMode, _triangulos3D escena[], int objetosEscena, bool circulos, bool tapas, bool enEscena) {
   if (enEscena) {
     for (int i = 0; i < objetosEscena; ++i) {
+      glLoadName(i+1);
       escena[i].draw_solido();
       glTranslatef(5, 0, 0);
     }
